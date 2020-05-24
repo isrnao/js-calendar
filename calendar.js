@@ -1,10 +1,4 @@
-<form action="" method="post">
-    @csrf
-    <div id="calendar"></div>
-    <button id="prev" type="button">　前の月　</button>　<button id="next" type="button">　次の月　</button>
-    <input type="hidden" id="target" name="date" value="">
-    
-    <script>    
+
     const weeks = ['日', '月', '火', '水', '木', '金', '土'];
     const date = new Date();
     let year = date.getFullYear();
@@ -95,4 +89,3 @@
         }
     });
     showCalendar(year, month);
-    </script>
