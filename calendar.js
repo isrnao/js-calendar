@@ -52,15 +52,24 @@ function createCalendar(year, month) {
     return [calendarHtml,endDayCount];
 }
 
-function moveCalendar(e) {
-    document.querySelector('#calendar').innerHTML = ''; //表示カレンダー初期化
-    if (e.target.id === 'prev' && month != date.getMonth() + 1) {
+
+function moveCalendar(e) {//月移動処理
+    document.querySelector('#calendar').innerHTML = ''; //表示中のカレンダー初期化
+
+    if (e.target.id === 'prev' && year == date.getFullYear() && month != date.getMonth() + 1) {//過去月ブロック
+        month--;
+        if (month < 1) {
+            year--;
+            month = 12;
+        };
+    }else if(e.target.id === 'prev' && year != date.getFullYear()) {//来年以降ブロックしない
         month--;
         if (month < 1) {
             year--;
             month = 12;
         };
     };
+
     if (e.target.id === 'next') {
         month++;
         if (month > 12) {
